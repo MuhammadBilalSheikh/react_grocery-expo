@@ -6,9 +6,9 @@ import { Pressable, StyleSheet, Text, View } from 'react-native'
 export default function Page() {
     const { user } = useUser()
     const { signOut } = useClerk()
-
+    // className="bg-background text-muted-foreground" 
     return (
-        <View style={styles.container}>
+        <View style={styles.container} >
             <Text style={styles.title}>Welcome!</Text>
             <Show when="signed-in">
                 <Text>Hello {user?.emailAddresses[0].emailAddress}</Text>
