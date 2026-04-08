@@ -8,7 +8,9 @@
     "scheme": "reactgrocery",
     "userInterfaceStyle": "automatic",
     "ios": {
-      "icon": "./assets/expo.icon"
+      "icon": "./assets/expo.icon",
+      "bundleIdentifier": "com.anonymous.React-Grocery",
+      "appleTeamId": "TVB4X6G75C"
     },
     "android": {
       "adaptiveIcon": {
@@ -24,6 +26,7 @@
       "favicon": "./assets/images/favicon.png"
     },
     "plugins": [
+      "@clerk/expo",
       "expo-router",
       [
         "expo-splash-screen",
