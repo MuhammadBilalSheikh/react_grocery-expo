@@ -7,8 +7,8 @@ import { useColorScheme } from "nativewind";
 export default function TabsLayout() {
     const { isSignedIn, isLoaded } = useAuth()
 
-    const { colorsScheme } = useColorScheme();
-    const isDark = colorsScheme === 'dark';
+    const { colorScheme } = useColorScheme();
+    const isDark = colorScheme === 'dark';
     const tabtTintColor = isDark ? "hsl(142 70% 54%)" : "hsl(147 75% 34%)";
 
     if (!isLoaded) {
