@@ -1,23 +1,15 @@
-
-import TabScreenBackground from '@/components/TabScreenBackground';
-import CompletedItems from "@/components/list/CompletedItems";
-import ListHeroCard from '@/components/list/ListHeroCard';
 import PendingItemCard from "@/components/list/PendingItemCard";
 import { useGroceryStore } from "@/store/grocery-store";
-import { FlatList, Text, View } from 'react-native';
+import { FlatList, Text, View } from "react-native";
 
+import CompletedItems from "@/components/list/CompletedItems";
+import ListHeroCard from "@/components/list/ListHeroCard";
+import TabScreenBackground from "@/components/TabScreenBackground";
 
-export default function ListiScreen() {
+export default function ListScreen() {
     const { items } = useGroceryStore();
 
     const pendingItems = items.filter((item) => !item.purchased);
-
-
-    // const { isLoading, posts } = useGroceryStore()
-    // console.log("isLoading", isLoading)
-    // console.log("posts", posts)
-
-    // className="bg-background text-muted-foreground" 
 
     return (
         <FlatList
@@ -44,29 +36,28 @@ export default function ListiScreen() {
     );
 }
 
+// FIRST VERSION WITH ITEMS.MAP
+/*
+<ScrollView
+      className="flex-1 bg-background py-4"
+      showsVerticalScrollIndicator={false}
+      contentContainerStyle={{ padding: 20, gap: 14 }}
+    >
+      <TabScreenBackground />
 
-// todo: -  FIRST VERSION WITH ITEMS.MAP
-// return (
-//     <ScrollView
-//         className="flex-1 bg-background py-4"
-//         showsVerticalScrollIndicator={false}
-//         contentContainerStyle={{ padding: 20, gap: 14 }}
-//     >
-//         <TabScreenBackground />
+      <ListHeroCard />
 
-//         <ListHeroCard />
+      <View className="flex-row items-center justify-between px-1">
+        <Text className="text-sm font-semibold uppercase tracking-[1px] text-muted-foreground">
+          Shopping items
+        </Text>
+        <Text className="text-sm text-muted-foreground">{pendingItems.length} active</Text>
+      </View>
 
-//         <View className="flex-row items-center justify-between px-1">
-//             <Text className="text-sm font-semibold uppercase tracking-[1px] text-muted-foreground">
-//                 Shopping items
-//             </Text>
-//             <Text className="text-sm text-muted-foreground">{pendingItems.length} active</Text>
-//         </View>
+      {pendingItems.map((item) => (
+        <PendingItemCard key={item.id} item={item} />
+      ))}
 
-//         {pendingItems.map((item) => (
-//             <PendingItemCard key={item.id} item={item} />
-//         ))}
-
-//         <CompletedItems />
-//     </ScrollView>
-// );
+      <CompletedItems />
+    </ScrollView>
+*/
