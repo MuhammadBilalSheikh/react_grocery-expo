@@ -2,10 +2,9 @@ import PlannerFormCard from "@/components/planner/PlannerFormCard";
 import PlannerHeroImage from "@/components/planner/PlannerHeroImage";
 import TabScreenBackground from "@/components/TabScreenBackground";
 import { useGroceryStore } from "@/store/grocery-store";
-import { ScrollView, Text, View } from "react-native";
-// import { } from "react-native-keyboard-controller";
+import { FontAwesome6 } from "@expo/vector-icons";
+import { Text, View } from "react-native";
 import { KeyboardAwareScrollView } from "react-native-keyboard-controller";
-
 
 const PlannerScreen = () => {
     const { items } = useGroceryStore();
@@ -22,10 +21,10 @@ const PlannerScreen = () => {
     return (
         <KeyboardAwareScrollView
             bottomOffset={80}
+            contentContainerStyle={{ padding: 20, gap: 14 }}
+            showsVerticalScrollIndicator={false}
             className="flex-1 bg-background py-4"
             contentInsetAdjustmentBehavior="automatic"
-            showsVerticalScrollIndicator={false}
-            contentContainerStyle={{ padding: 20, gap: 14 }}
             keyboardShouldPersistTaps="handled"
         >
             <TabScreenBackground />
@@ -42,6 +41,10 @@ const PlannerScreen = () => {
                         <Text className="mt-2 text-sm leading-5 text-muted-foreground">
                             Organize your next grocery run with categories, quantities, and priority in one place.
                         </Text>
+                    </View>
+
+                    <View className="h-12 w-12 items-center justify-center rounded-2xl bg-primary">
+                        <FontAwesome6 name="wand-magic-sparkles" size={18} color="#ffffff" />
                     </View>
                 </View>
 

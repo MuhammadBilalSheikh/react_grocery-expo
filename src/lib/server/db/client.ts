@@ -3,7 +3,7 @@ import { drizzle } from "drizzle-orm/neon-http";
 import * as schema from "./schema";
 
 
- 
+
 
 const databaseURl = process.env.DATABASE_URL as string;
 
@@ -12,4 +12,5 @@ if (!databaseURl) {
 }
 
 const sql = neon(databaseURl);
-export const db = drizzle({client: sql, schema});
+export const db = drizzle({ client: sql, schema });
+

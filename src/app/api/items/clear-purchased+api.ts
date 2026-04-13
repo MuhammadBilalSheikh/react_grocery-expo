@@ -1,12 +1,11 @@
-import { clearPurchasedGroceryItems } from "@/lib/server/db-actions";
+import { clearPurchasedItems } from "@/lib/server/db-actions";
 
 export async function POST() {
     try {
-        await clearPurchasedGroceryItems();
-        return Response.json({ message: "Purchased items cleared successfully" });
+        await clearPurchasedItems();
+        return Response.json({ ok: true });
     } catch (error) {
-        const errorMessage = error instanceof Error ? error.message : "Failed to clear purchased items"
-        console.error("Error clearing purchased items:", errorMessage)
-        return Response.json({ error: errorMessage }, { status: 500 })
+        const message = error instanceof Error ? error.message : "Failed to clear completed items";
+        return Response.json({ error: message }, { status: 500 });
     }
 }

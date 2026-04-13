@@ -20,13 +20,13 @@ export async function PATCH(request: Request, { id }: { id: string }) {
         return Response.json({ error: message }, { status: 500 });
     }
 }
+
 export async function DELETE(_request: Request, { id }: { id: string }) {
     try {
         await deleteGroceryItem(id);
         return Response.json({ ok: true });
     } catch (error) {
-        const errorMessage = error instanceof Error ? error.message : "Failed to delete item"
-        console.error("Error deleting item:", errorMessage)
-        return Response.json({ error: errorMessage }, { status: 500 })
+        const message = error instanceof Error ? error.message : "Failed to delete item";
+        return Response.json({ error: message }, { status: 500 });
     }
 }
